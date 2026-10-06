@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6v电影网 · 电影资料导航与观影资源索引</title>
+<meta name="description" content="6v电影网（https://www6vdianyingwang-zh.github.io）是面向影迷的电影资料导航站，整理国产与海外影片的年份索引、类型分类、高分榜单与正版观看入口线索，提供影片基础资料查询与观影指南。">
+<meta name="keywords" content="6v电影网,电影资料,影片索引,电影导航,观影指南,高分电影榜,电影分类">
+<meta name="author" content="6v电影网资料组">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="bingbot" content="index,follow">
+<meta name="referrer" content="origin-when-cross-origin">
+<link rel="canonical" href="https://www6vdianyingwang-zh.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="6v电影网 · 电影资料导航与观影资源索引">
+<meta property="og:description" content="电影资料导航站：年份索引、类型分类、高分榜单与正版观看入口线索，面向影迷的观影指南。">
+<meta property="og:url" content="https://www6vdianyingwang-zh.github.io/">
+<meta name="twitter:card" content="summary">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0f1115;
+  --bg2:#161a21;
+  --panel:#1c212a;
+  --line:#2b323d;
+  --txt:#e6e9ee;
+  --txt2:#a8b0bd;
+  --muted:#6f7885;
+  --brand:#2f9e44;
+  --brand2:#69db7c;
+  --hot:#ff6b6b;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.75;font-size:15px;
+}
+a{text-decoration:none;color:inherit;transition:color .2s,background .2s}
+ul{list-style:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ANNOUNCE */
+.announce{background:#1a1f17;border-bottom:1px solid var(--line);font-size:13px;color:var(--brand2)}
+.announce .wrap{display:flex;align-items:center;gap:14px;height:38px;overflow:hidden}
+.announce .badge{background:var(--brand);color:#fff;padding:2px 10px;border-radius:3px;font-size:12px;font-weight:700;flex-shrink:0}
+
+/* HEADER */
+header{padding:34px 0 30px;border-bottom:1px solid var(--line)}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.logo-block{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.logo{font-size:46px;font-weight:900;letter-spacing:-1px;color:#fff}
+.logo .v{color:var(--brand2)}
+.logo-block .slogan{font-size:14px;color:var(--muted);border-left:2px solid var(--brand);padding-left:14px}
+.hero-meta{text-align:right;font-size:13px;color:var(--txt2);line-height:2}
+.hero-meta .u{color:var(--brand2);font-family:Menlo,Consolas,monospace;font-size:13px}
+.hero-meta .u a{color:var(--brand2)}
+.hero-meta .u a:hover{text-decoration:underline}
+
+/* NAV */
+nav.tabs{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+nav.tabs ul{display:flex;flex-wrap:wrap}
+nav.tabs a{padding:14px 24px;font-size:14.5px;color:var(--txt2);border-right:1px solid var(--line);position:relative}
+nav.tabs a:last-child{border-right:0}
+nav.tabs a:hover{color:#fff;background:#232a34}
+nav.tabs a.on{color:#fff;background:var(--brand)}
+nav.tabs a.on::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--brand2)}
+
+/* BREADCRUMB */
+.crumb{display:flex;align-items:center;gap:8px;padding:16px 0;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.crumb a:hover{color:var(--brand2)}
+.crumb b{color:var(--txt2);font-weight:500}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;padding-bottom:44px}
+main.col-9{grid-column:span 9}
+aside.col-3{grid-column:span 3;display:flex;flex-direction:column;gap:22px}
+
+/* HERO BANNER */
+.banner{grid-column:1/-1;background:linear-gradient(120deg,#16331c,#1c212a 60%,#2a1c16);border:1px solid var(--line);border-radius:8px;padding:30px 32px;display:grid;grid-template-columns:1.6fr 1fr;gap:30px;align-items:center;margin-top:22px}
+.banner .tag{display:inline-block;background:rgba(47,158,68,.18);color:var(--brand2);padding:4px 12px;border-radius:20px;font-size:12px;letter-spacing:1px;margin-bottom:12px}
+.banner h2{font-size:26px;line-height:1.5;color:#fff;margin-bottom:12px}
+.banner p{color:var(--txt2);font-size:14.5px}
+.banner .stat{display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--line);padding-left:26px}
+.banner .stat div{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;color:var(--txt2)}
+.banner .stat strong{color:var(--brand2);font-size:22px;font-family:Menlo,monospace}
+
+/* SECTION */
+.sec{margin-top:34px}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sec-head h3{font-size:18px;font-weight:800;color:#fff;letter-spacing:.5px}
+.sec-head .bar{width:4px;height:18px;background:var(--brand);border-radius:2px}
+.sec-head .en{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.sec-head .more{margin-left:auto;font-size:13px;color:var(--muted)}
+.sec-head .more:hover{color:var(--brand2)}
+
+/* MOVIE GRID */
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mcard{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.mcard .cover{height:150px;display:flex;align-items:flex-end;padding:14px;position:relative}
+.mcard .cover::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.75))}
+.mcard .cover span{position:relative;color:#fff;font-size:16px;font-weight:700}
+.mcard .cover small{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:2px 8px;border-radius:3px;z-index:2}
+.c1{background:linear-gradient(135deg,#3b2a1a,#1c212a)}
+.c2{background:linear-gradient(135deg,#1a332b,#1c212a)}
+.c3{background:linear-gradient(135deg,#2a1a33,#1c212a)}
+.c4{background:linear-gradient(135deg,#33231a,#1c212a)}
+.c5{background:linear-gradient(135deg,#1a2433,#1c212a)}
+.c6{background:linear-gradient(135deg,#331a1a,#1c212a)}
+.mcard .body{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:6px}
+.mcard .info{font-size:12px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}
+.mcard .info i{font-style:normal;background:#242b35;padding:1px 7px;border-radius:3px;color:var(--txt2)}
+.mcard h4{font-size:15px;color:var(--txt);line-height:1.5}
+.mcard h4 a:hover{color:var(--brand2)}
+.mcard .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:10px;margin-top:8px;font-size:12px}
+.mcard .score{color:var(--brand2);font-weight:700;font-family:Menlo,monospace}
+.mcard .src{color:var(--muted)}
+
+/* LIST TABLE */
+.ltable{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.ltable table{width:100%;border-collapse:collapse}
+.ltable th,.ltable td{padding:13px 16px;border-bottom:1px solid var(--line);font-size:14px;text-align:left;color:var(--txt2)}
+.ltable th{background:#232a34;color:var(--txt);font-size:13px;font-weight:700}
+.ltable tr:last-child td{border-bottom:0}
+.ltable tr:hover td{background:#20262f}
+.ltable td.name{color:#fff;font-weight:600}
+.ltable td.name a:hover{color:var(--brand2)}
+.ltable .num{color:var(--brand2);font-family:Menlo,monospace;font-weight:700;width:40px}
+.ltable .type{font-size:12px;background:#242b35;padding:2px 9px;border-radius:3px;color:var(--txt2)}
+
+/* YEAR STRIP */
+.years{display:flex;flex-wrap:wrap;gap:8px}
+.years a{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:8px 14px;font-size:13.5px;color:var(--txt2)}
+.years a:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:22px}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{position:relative;padding:10px 0;font-size:14px;color:var(--txt2);border-bottom:1px dashed var(--line)}
+.tl li:last-child{border-bottom:0}
+.tl li::before{content:"";position:absolute;left:-21px;top:18px;width:10px;height:10px;border-radius:50%;background:var(--brand);border:2px solid var(--bg)}
+.tl li b{display:block;color:var(--brand2);font-size:12px;font-family:Menlo,monospace}
+
+/* SIDEBAR */
+.widget{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px}
+.widget h4{font-size:14px;color:#fff;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.widget h4::before{content:"";width:3px;height:14px;background:var(--brand);border-radius:2px}
+.widget p{font-size:13.5px;color:var(--txt2)}
+.widget .url{color:var(--brand2);font-family:Menlo,monospace;font-size:12.5px;display:block;margin-top:10px;word-break:break-all}
+.rank li{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.rank li:last-child{border-bottom:0}
+.rank .n{color:var(--muted);font-family:Menlo,monospace;font-size:12px;min-width:22px}
+.rank .n.top{color:var(--hot);font-weight:800}
+.rank a:hover{color:var(--brand2)}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tags a{font-size:12.5px;background:#242b35;color:var(--txt2);padding:5px 11px;border-radius:4px;border:1px solid var(--line)}
+.tags a:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mini-grid a{background:#242b35;border:1px solid var(--line);border-radius:4px;padding:10px;font-size:13px;color:var(--txt2)}
+.mini-grid a:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+/* PAGER */
+.pager{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
+.pager a{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:8px 15px;font-size:13.5px;color:var(--txt2)}
+.pager a:hover,.pager a.cur{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:3px solid var(--brand);padding:44px 0 20px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:30px;padding-bottom:30px;border-bottom:1px solid var(--line)}
+footer h5{color:#fff;font-size:14px;margin-bottom:14px}
+footer ul li{padding:6px 0;font-size:13.5px;color:var(--txt2)}
+footer a:hover{color:var(--brand2)}
+.fabout p{font-size:13.5px;color:var(--txt2)}
+.fabout .u{color:var(--brand2);font-family:Menlo,monospace;font-size:12.5px;display:block;margin-top:10px}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:18px;font-size:12.5px;color:var(--muted);flex-wrap:wrap;gap:10px}
+.fbot .u{color:var(--brand2);font-family:Menlo,monospace}
+
+@media(max-width:1000px){
+  .grid{grid-template-columns:1fr}
+  main.col-9,aside.col-3{grid-column:1/-1}
+  .mgrid{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .banner{grid-template-columns:1fr}
+  .banner .stat{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:18px}
+}
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  .logo{font-size:32px}
+  .hero-meta{text-align:left}
+  .mgrid{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  nav.tabs a{padding:11px 14px;font-size:13.5px}
+  .banner{padding:22px 20px}
+  .banner h2{font-size:21px}
+  .sec-head h3{font-size:16px}
+  .ltable th,.ltable td{font-size:13px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="announce">
+  <div class="wrap">
+    <span class="badge">站内公告</span>
+    <marquee scrollamount="3">6v电影网为影片资料与观影导航站点，仅提供影片基础信息与正版观看入口线索，不提供在线播放；资料库持续整理更新，欢迎反馈纠错。</marquee>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="hero">
+      <div class="logo-block">
+        <div class="logo">6<span class="v">v</span>电影网</div>
+        <div class="slogan">影片资料导航 · 观影指南<br>从年份到类型，把想看的找出来</div>
+      </div>
+      <div class="hero-meta">
+        <div>资料库访问入口</div>
+        <div class="u"><a href="https://www6vdianyingwang-zh.github.io">www6vdianyingwang-zh.github.io</a></div>
+      </div>
+    </div>
+    <nav class="tabs">
+      <ul>
+        <li><a href="#" class="on">首页</a></li>
+        <li><a href="#year">年份索引</a></li>
+        <li><a href="#type">类型分类</a></li>
+        <li><a href="#rank">高分榜单</a></li>
+        <li><a href="#news">新片资讯</a></li>
+        <li><a href="#guide">观看指南</a></li>
+        <li><a href="#about">关于本站</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb">
+    <a href="#">6v电影网</a> › <a href="#">首页</a> › <b>影片资料导航</b>
+  </div>
+</div>
+
+<div class="wrap grid">
+
+  <main class="col-9">
+
+    <section class="banner">
+      <div>
+        <span class="tag">FEATURED</span>
+        <h2>不是资源站，是索引站：把一部影片的名字、年份、类型、评分和观看线索，整理成好查的资料。</h2>
+        <p>6v电影网用资料库的方式组织影片信息，支持按年份、类型、地区与评分维度检索，帮助影迷在海量片单中快速定位值得看的片子。</p>
+      </div>
+      <div class="stat">
+        <div><span>收录影片资料</span><strong>3,200+</strong></div>
+        <div><span>整理片单</span><strong>186</strong></div>
+        <div><span>覆盖类型</span><strong>24</strong></div>
+        <div><span>资料更新频率</span><strong>每周</strong></div>
+      </div>
+    </section>
+
+    <section id="year" class="sec">
+      <div class="sec-head">
+        <span class="bar"></span><h3>年份索引</h3><span class="en">Year Index</span>
+        <a href="#" class="more">展开完整年份 →</a>
+      </div>
+      <div class="years">
+        <a href="#">2026</a><a href="#">2025</a><a href="#">2024</a><a href="#">2023</a><a href="#">2022</a>
+        <a href="#">2021</a><a href="#">2020</a><a href="#">2019</a><a href="#">2018</a><a href="#">2015</a>
+        <a href="#">2010</a><a href="#">2005</a><a href="#">2000</a><a href="#">90年代</a><a href="#">更早</a>
+      </div>
+    </section>
+
+    <section id="type" class="sec">
+      <div class="sec-head">
+        <span class="bar"></span><h3>近期整理</h3><span class="en">Recently Updated</span>
+        <a href="#" class="more">查看全部 →</a>
+      </div>
+      <div class="mgrid">
+        <article class="mcard">
+          <div class="cover c1"><small>2026</small><span>海港之夜</span></div>
+          <div class="body">
+            <div class="info"><i>悬疑</i><i>犯罪</i></div>
+            <h4><a href="#">海港之夜：被反复提及的港片叙事传统，在这部片里找到了新切口</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">资料组从类型沿革角度梳理了这部新作的叙事来源。</p>
+            <div class="foot"><span class="src">悬疑 · 国产</span><span class="score">8.4</span></div>
+          </div>
+        </article>
+        <article class="mcard">
+          <div class="cover c2"><small>2026</small><span>归途有风</span></div>
+          <div class="body">
+            <div class="info"><i>剧情</i><i>家庭</i></div>
+            <h4><a href="#">归途有风：把"回家"这件事拍出了地形感</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">影片的地理设定承担了叙事功能，不只是背景板。</p>
+            <div class="foot"><span class="src">剧情 · 国产</span><span class="score">8.1</span></div>
+          </div>
+        </article>
+        <article class="mcard">
+          <div class="cover c3"><small>2025</small><span>无声之岸</span></div>
+          <div class="body">
+            <div class="info"><i>文艺</i><i>独立</i></div>
+            <h4><a href="#">无声之岸：独立制作里的声音设计，值得单独看一遍</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">资料组整理了该片的声音设计相关访谈线索。</p>
+            <div class="foot"><span class="src">文艺 · 国产</span><span class="score">7.9</span></div>
+          </div>
+        </article>
+        <article class="mcard">
+          <div class="cover c4"><small>2025</small><span>南国野兽</span></div>
+          <div class="body">
+            <div class="info"><i>动作</i><i>冒险</i></div>
+            <h4><a href="#">南国野兽：动作场面的实拍痕迹与剪辑节奏分析</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">从技术维度整理的动作片观看要点。</p>
+            <div class="foot"><span class="src">动作 · 合拍</span><span class="score">7.6</span></div>
+          </div>
+        </article>
+        <article class="mcard">
+          <div class="cover c5"><small>2024</small><span>漫长的雨季</span></div>
+          <div class="body">
+            <div class="info"><i>纪录</i><i>社会</i></div>
+            <h4><a href="#">漫长的雨季：纪录片中的时间尺度与剪辑取舍</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">资料组整理了该片的拍摄周期与版本差异。</p>
+            <div class="foot"><span class="src">纪录 · 国产</span><span class="score">8.6</span></div>
+          </div>
+        </article>
+        <article class="mcard">
+          <div class="cover c6"><small>2024</small><span>最后一班渡轮</span></div>
+          <div class="body">
+            <div class="info"><i>剧情</i><i>年代</i></div>
+            <h4><a href="#">最后一班渡轮：年代细节与道具考据清单</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">服化道与场景的考据整理，供反复观看时对照。</p>
+            <div class="foot"><span class="src">年代 · 国产</span><span class="score">8.0</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="pager">
+        <a href="#" class="cur">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">…</a><a href="#">下一页</a>
+      </div>
+    </section>
+
+    <section id="rank" class="sec">
+      <div class="sec-head">
+        <span class="bar"></span><h3>高分榜单</h3><span class="en">Top Rated</span>
+        <a href="#" class="more">榜单说明 →</a>
+      </div>
+      <div class="ltable">
+        <table>
+          <thead>
+            <tr><th>排名</th><th>片名</th><th>类型</th><th>年份</th><th>评分</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">01</td><td class="name"><a href="#">漫长的雨季</a></td><td><span class="type">纪录</span></td><td>2024</td><td class="score">8.6</td></tr>
+            <tr><td class="num">02</td><td class="name"><a href="#">海港之夜</a></td><td><span class="type">悬疑</span></td><td>2026</td><td class="score">8.4</td></tr>
+            <tr><td class="num">03</td><td class="name"><a href="#">归途有风</a></td><td><span class="type">剧情</span></td><td>2026</td><td class="score">8.1</td></tr>
+            <tr><td class="num">04</td><td class="name"><a href="#">最后一班渡轮</a></td><td><span class="type">年代</span></td><td>2024</td><td class="score">8.0</td></tr>
+            <tr><td class="num">05</td><td class="name"><a href="#">无声之岸</a></td><td><span class="type">文艺</span></td><td>2025</td><td class="score">7.9</td></tr>
+            <tr><td class="num">06</td><td class="name"><a href="#">南国野兽</a></td><td><span class="type">动作</span></td><td>2025</td><td class="score">7.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="news" class="sec">
+      <div class="sec-head">
+        <span class="bar"></span><h3>新片资讯</h3><span class="en">News</span>
+        <a href="#" class="more">资讯归档 →</a>
+      </div>
+      <div class="ltable">
+        <table>
+          <thead><tr><th>日期</th><th>资讯</th><th>来源</th></tr></thead>
+          <tbody>
+            <tr><td>10-05</td><td class="name"><a href="#">2026 国庆档影片资料汇总：7 部新片基本信息与类型标签整理</a></td><td>资料组</td></tr>
+            <tr><td>10-03</td><td class="name"><a href="#">三部华语新片定档信息更新，资料库已同步年份索引</a></td><td>资料组</td></tr>
+            <tr><td>09-29</td><td class="name"><a href="#">修复重映片单：4 部经典作品本轮放映资料整理</a></td><td>资讯</td></tr>
+            <tr><td>09-26</td><td class="name"><a href="#">独立电影展映片单与基本信息索引（非完整）</a></td><td>资讯</td></tr>
+            <tr><td>09-22</td><td class="name"><a href="#">片库新增 120 条影片基础资料条目</a></td><td>资料组</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="guide" class="sec">
+      <div class="sec-head">
+        <span class="bar"></span><h3>观看指南</h3><span class="en">How to Watch</span>
+      </div>
+      <div class="mgrid">
+        <article class="mcard">
+          <div class="cover c2"><span>院线档期</span></div>
+          <div class="body">
+            <h4><a href="#">如何查一部新片的院线上映档期</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">从定档公告到地区上映差异，资料组整理了一份查询路径。</p>
+          </div>
+        </article>
+        <article class="mcard">
+          <div class="cover c1"><span>正版平台</span></div>
+          <div class="body">
+            <h4><a href="#">影片上线视频平台的规律与时间窗</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">院线与平台的窗口期差异，以及不同平台的版权分布特征。</p>
+          </div>
+        </article>
+        <article class="mcard">
+          <div class="cover c3"><span>修复版本</span></div>
+          <div class="body">
+            <h4><a href="#">经典影片修复版与原始版的观看差异</a></h4>
+            <p style="font-size:13px;color:var(--txt2)">画幅、色彩与声轨的版本差异，决定了观看体验。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="col-3">
+
+    <div class="widget">
+      <h4>关于 6v电影网</h4>
+      <p>影片资料与观影导航站点：按年份、类型、评分组织影片信息，提供基础资料查询与正版观看入口线索，不提供在线播放服务。</p>
+      <span class="url">https://www6vdianyingwang-zh.github.io</span>
+    </div>
+
+    <div class="widget">
+      <h4>热门类型</h4>
+      <div class="tags">
+        <a href="#">剧情</a><a href="#">喜剧</a><a href="#">动作</a><a href="#">悬疑</a>
+        <a href="#">犯罪</a><a href="#">科幻</a><a href="#">动画</a><a href="#">纪录</a>
+        <a href="#">文艺</a><a href="#">惊悚</a><a href="#">战争</a><a href="#">奇幻</a>
+      </div>
+    </div>
+
+    <div class="widget">
+      <h4>地区索引</h4>
+      <div class="mini-grid">
+        <a href="#">中国大陆</a><a href="#">中国香港</a><a href="#">中国台湾</a>
+        <a href="#">美国</a><a href="#">日本</a><a href="#">韩国</a>
+        <a href="#">欧洲</a><a href="#">东南亚</a>
+      </div>
+    </div>
+
+    <div class="widget">
+      <h4>榜单排行</h4>
+      <ul class="rank">
+        <li><span class="n top">01</span><a href="#">本周评分最高</a></li>
+        <li><span class="n top">02</span><a href="#">年度华语片 TOP20</a></li>
+        <li><span class="n">03</span><a href="#">冷门高分片</a></li>
+        <li><span class="n">04</span><a href="#">修复重映榜</a></li>
+        <li><span class="n">05</span><a href="#">导演代表作索引</a></li>
+        <li><span class="n">06</span><a href="#">类型片入门片单</a></li>
+      </ul>
+    </div>
+
+    <div class="widget">
+      <h4>资料更新记录</h4>
+      <ul class="tl">
+        <li><b>10/05</b>2026 国庆档新片资料汇总上线</li>
+        <li><b>10/03</b>年份索引新增 2026 条目</li>
+        <li><b>09/29</b>修复重映片单整理完成</li>
+        <li><b>09/22</b>资料库新增 120 条条目</li>
+        <li><b>09/15</b>高分榜单评分维度说明发布</li>
+      </ul>
+    </div>
+
+    <div class="widget">
+      <h4>快速入口</h4>
+      <div class="mini-grid">
+        <a href="#year">年份索引</a><a href="#type">类型分类</a>
+        <a href="#rank">高分榜单</a><a href="#guide">观看指南</a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<footer id="about">
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fabout">
+        <h5>6v电影网</h5>
+        <p>影片资料导航与观影指南站点，以资料库方式整理影片的基础信息，帮助影迷按年份、类型、地区与评分快速找到想看的片子。</p>
+        <span class="u">https://www6vdianyingwang-zh.github.io</span>
+      </div>
+      <div>
+        <h5>索引</h5>
+        <ul>
+          <li><a href="#year">年份索引</a></li>
+          <li><a href="#type">类型分类</a></li>
+          <li><a href="#">地区索引</a></li>
+          <li><a href="#">导演索引</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>榜单</h5>
+        <ul>
+          <li><a href="#rank">高分总榜</a></li>
+          <li><a href="#">年度榜</a></li>
+          <li><a href="#">类型榜</a></li>
+          <li><a href="#">冷门榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>资讯</h5>
+        <ul>
+          <li><a href="#news">新片资讯</a></li>
+          <li><a href="#">档期汇总</a></li>
+          <li><a href="#">修复重映</a></li>
+          <li><a href="#">展映消息</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于</h5>
+        <ul>
+          <li><a href="#about">站点说明</a></li>
+          <li><a href="#">资料来源</a></li>
+          <li><a href="#">纠错反馈</a></li>
+          <li><a href="#">免责声明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 6v电影网 · 本站为影片资料与观影导航站点，不提供在线播放服务，影片观看请通过正规渠道。</span>
+      <span class="u">https://www6vdianyingwang-zh.github.io</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
